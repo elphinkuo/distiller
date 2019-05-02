@@ -79,8 +79,8 @@ from distiller import normalize_module_name, SummaryGraph
 from examples.automated_deep_compression.adc_random_env import random_agent
 
 # Choose which RL library to use: Coach from Intel AI Lab, or Spinup from OpenAI
-#RLLIB = "spinup"
-RLLIB = "coach"
+RLLIB = "spinup"
+#RLLIB = "coach"
 
 
 msglogger = logging.getLogger()
@@ -142,8 +142,8 @@ if RLLIB == "spinup":
                   epochs=400,
                   replay_size=2000,
                   batch_size=64,
-                  start_steps=env1.amc_cfg.num_heatup_epochs,
-                  steps_per_epoch=800 * env1.num_layers(),  # every 50 episodes perform 10 episodes of testing
+                  start_steps=0, #env1.amc_cfg.num_heatup_epochs,
+                  steps_per_epoch=800 * 3, #env1.num_layers(),  # every 50 episodes perform 10 episodes of testing
                   act_noise=0.5,
                   pi_lr=1e-4,
                   q_lr=1e-3,
@@ -268,7 +268,7 @@ def do_adc_internal(model, args, optimizer_data, validate_fn, save_checkpoint_fn
         amc_cfg.heatup_noise = 0.5
         amc_cfg.initial_training_noise = 0.5
         amc_cfg.training_noise_decay = 0.996  # 0.998
-        amc_cfg.num_heatup_epochs = args.amc_heatup_epochs
+        amc_cfg.num_heatup_epochs = 0 #args.amc_heatup_epochs
         amc_cfg.num_training_epochs = args.amc_training_epochs
         training_noise_duration = amc_cfg.num_training_epochs * steps_per_episode
         heatup_duration = amc_cfg.num_heatup_epochs * steps_per_episode
