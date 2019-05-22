@@ -186,10 +186,10 @@ def load_checkpoint(model, chkpt_file, optimizer=None, model_device=None, *, lea
             checkpoint['optimizer_state_dict'], model)
     except KeyError:
         if 'optimizer' not in checkpoint:
-            raise
+    #        raise
         # older checkpoints didn't support this feature
         # they had the 'optimizer' field instead
-        optimizer = None
+            optimizer = None
 
     if optimizer is not None:
         msglogger.info('Optimizer of type {type} was loaded from checkpoint'.format(
