@@ -22,7 +22,7 @@ schedule_params.heatup_steps = EnvironmentSteps(0)
 # Agent #
 #########
 agent_params = PPOAgentParameters()
-agent_params.network_wrappers['actor'].learning_rate = 0.1
+agent_params.network_wrappers['actor'].learning_rate = 0.01
 agent_params.network_wrappers['critic'].learning_rate = 0.001
 
 agent_params.network_wrappers['actor'].input_embedders_parameters['observation'].scheme = [Dense(64)]

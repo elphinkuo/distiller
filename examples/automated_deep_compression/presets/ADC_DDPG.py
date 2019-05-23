@@ -42,7 +42,7 @@ agent_params.network_wrappers['critic'].adam_optimizer_beta1 = 0.9
 agent_params.network_wrappers['critic'].adam_optimizer_beta2 = 0.999
 
 
-agent_params.network_wrappers['actor'].learning_rate = 0.1  # 0.0001
+agent_params.network_wrappers['actor'].learning_rate = 0.01  # 0.0001
 agent_params.network_wrappers['critic'].learning_rate = 0.001
 # agent_params.network_wrappers['critic'].clip_gradients = 100
 # agent_params.network_wrappers['actor'].clip_gradients = 100
