@@ -248,9 +248,11 @@ def do_adc_internal(model, args, optimizer_data, validate_fn, save_checkpoint_fn
     #net_wrapper = NetworkWrapper(model, app_args, services)
     #return sample_networks(net_wrapper, services)
 
+
     if args.amc_protocol == "accuracy-guaranteed":
         amc_cfg.target_density = None
-        amc_cfg.reward_fn = lambda env, top1, top5, vloss, total_macs: -(1-top1/100) * math.log(total_macs)
+        amc_cfg.reward_fn = lambda env, top1, top5, vloss, total_macs: 2*(1-top1/100) + (1-top5/100) + ((10* env.dense_model_macs)/total_macs)
+        #amc_cfg.reward_fn = lambda env, top1, top5, vloss, total_macs: -(1-top1/100) * math.log(total_macs)
         amc_cfg.action_constrain_fn = None
     elif args.amc_protocol == "mac-constrained":
         amc_cfg.target_density = args.amc_target_density
