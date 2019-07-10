@@ -147,7 +147,7 @@ def main():
 
     # Create the model
     model = create_model(args.pretrained, args.dataset, args.arch,
-                         parallel=not args.load_serialized, device_ids=args.gpus)
+                         parallel=True, device_ids=args.gpus)
     compression_scheduler = None
     # Create a couple of logging backends.  TensorBoardLogger writes log files in a format
     # that can be read by Google's Tensor Board.  PythonLogger writes to the Python logger.
