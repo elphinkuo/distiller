@@ -754,6 +754,15 @@ class DistillerWrapperEnvironment(gym.Env):
         self.ft_stats_file.add_record([self.episode, accuracies])
 
         top1, top5, vloss = self.net_wrapper.validate()
+
+        print('***********************************BEFORE REWARD COMPUTE')
+        print('top1 is ', top1)
+        print('top5 is ', top5)
+        print('vloss is ', vloss)
+        print('total_mac is ', total_macs)
+        print('dense_model_macs is ', self.dense_model_macs)
+        print('model size is ', self.dense_model_size)
+
         reward = self.amc_cfg.reward_fn(self, top1, top5, vloss, total_macs)
 
         if log_stats:
