@@ -251,7 +251,7 @@ def do_adc_internal(model, args, optimizer_data, validate_fn, save_checkpoint_fn
 
     if args.amc_protocol == "accuracy-guaranteed":
         amc_cfg.target_density = None
-        amc_cfg.reward_fn = lambda env, top1, top5, vloss, total_macs: 2*(1-top1/100) + (1-top5/100) + ((10* env.dense_model_macs)/total_macs)
+        amc_cfg.reward_fn = lambda env, top1, top5, vloss, total_macs: 2*(1-top1/100) + (1-top5/100) + ((4* env.dense_model_macs)/total_macs)
         #amc_cfg.reward_fn = lambda env, top1, top5, vloss, total_macs: -(1-top1/100) * math.log(total_macs)
         amc_cfg.action_constrain_fn = None
     elif args.amc_protocol == "mac-constrained":
@@ -270,7 +270,7 @@ def do_adc_internal(model, args, optimizer_data, validate_fn, save_checkpoint_fn
         amc_cfg.heatup_noise = 0.5
         amc_cfg.initial_training_noise = 0.5
         amc_cfg.training_noise_decay = 0.996  # 0.998
-        amc_cfg.num_heatup_epochs = 0 #args.amc_heatup_epochs
+        amc_cfg.num_heatup_epochs = 50 #args.amc_heatup_epochs
         amc_cfg.num_training_epochs = args.amc_training_epochs
         training_noise_duration = amc_cfg.num_training_epochs * steps_per_episode
         heatup_duration = amc_cfg.num_heatup_epochs * steps_per_episode
