@@ -792,8 +792,9 @@ class DistillerWrapperEnvironment(gym.Env):
             self.best_reward = reward
             ckpt_name = self.save_checkpoint(is_best=True)
             msglogger.info("Best reward={}  episode={}  top1={}".format(reward, self.episode, top1))
-        else:
-            ckpt_name = self.save_checkpoint(is_best=False)
+        # else:
+            # if not best, then not save, save the disk space.
+            #ckpt_name = self.save_checkpoint(is_best=False)
 
         fields = [self.episode, top1, reward, total_macs, normalized_macs,
                   normalized_nnz, ckpt_name, action_history, agent_action_history]
