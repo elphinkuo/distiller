@@ -798,7 +798,7 @@ class DistillerWrapperEnvironment(gym.Env):
             #ckpt_name = self.save_checkpoint(is_best=False)
 
         fields = [self.episode, top1, reward, total_macs, normalized_macs,
-                  normalized_nnz, ckpt_name, action_history, agent_action_history]
+                  normalized_nnz, action_history, agent_action_history]
         self.stats_file.add_record(fields)
 
     def save_checkpoint(self, is_best=False):
