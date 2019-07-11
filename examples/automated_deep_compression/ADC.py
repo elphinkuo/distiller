@@ -251,7 +251,7 @@ def do_adc_internal(model, args, optimizer_data, validate_fn, save_checkpoint_fn
 
     if args.amc_protocol == "accuracy-guaranteed":
         amc_cfg.target_density = None
-        amc_cfg.reward_fn = lambda env, top1, top5, vloss, total_macs: (env.dense_model_macs/total_macs)/(90.5 - top1)*(top1>10)
+        amc_cfg.reward_fn = lambda env, top1, top5, vloss, total_macs: 100*(env.dense_model_macs/total_macs)/(90.5 - top1)*(top1>10)
 
         ##TODO new reward fucntion? efficiency explaination
         # amc_cfg.reward_fn = lambda env, top1, top5, vloss, total_macs: (90.5 - top1)*(total_macs/env.dense_model_macs)*(top1>10)
