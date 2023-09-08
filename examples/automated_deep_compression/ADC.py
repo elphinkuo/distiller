@@ -79,8 +79,8 @@ from distiller import normalize_module_name, SummaryGraph
 from examples.automated_deep_compression.adc_random_env import random_agent
 
 # Choose which RL library to use: Coach from Intel AI Lab, or Spinup from OpenAI
-RLLIB = "spinup"
-#RLLIB = "coach"
+#RLLIB = "spinup"
+RLLIB = "coach"
 
 
 msglogger = logging.getLogger()
