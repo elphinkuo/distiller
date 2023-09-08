@@ -1,3 +1,6 @@
+The original experiments code for AAAI 2020 paper, "AutoCompress: An Automatic DNN Structured Pruning Framework for Ultra-High Compression Rates". 
+The original experiments are modifications based on open sourced Neural Network Distiller, "Neural Network Distiller: A Python Package For DNN Compression Research." from Intel AI Lab. https://github.com/IntelLabs/distiller
+
 <center> <img src="imgs/banner1.png"></center>
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/NervanaSystems/distiller/blob/master/LICENSE)
