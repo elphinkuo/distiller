@@ -1,7 +1,7 @@
 The original experiments code for AAAI 2020 paper, "AutoCompress: An Automatic DNN Structured Pruning Framework for Ultra-High Compression Rates". 
 The original experiments are modifications based on open sourced Neural Network Distiller, "Neural Network Distiller: A Python Package For DNN Compression Research." from Intel AI Lab. https://github.com/IntelLabs/distiller.
 
-Using Deep Reinforcement Learning, the main point of the modifications is to find a convergent meaning reward, which makes the automated pruning and compression possible.
+Using Deep Reinforcement Learning, the main point of the modifications is to find a convergent meaningful reward, which makes the automated pruning and compression possible.
 
 <center> <img src="imgs/banner1.png"></center>
 
